@@ -219,6 +219,7 @@ a:hover { text-decoration: underline; }
   padding: 18px 22px 12px;
 }
 .nb-panel.hidden { display: none; }
+.hidden { display: none !important; }
 .nb-intro {
   font-size: 14px;
   color: var(--nb-ink-soft);
