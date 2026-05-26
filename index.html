@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Edinburgh Fringe Day-Planner Map | Northern Belle</title>
+  <meta name="description" content="An interactive map and day-planner for Northern Belle guests visiting the Edinburgh Fringe on Saturday 29 August 2026. Arrive Waverley 12:10, depart 17:20, with curated venues, walking distances and suggested day plans." />
+  <link rel="icon" type="image/png" href="https://northernbelle.co.uk/images/crest.png" />
+
+  <!-- Leaflet 1.9.4 -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Fonts: Playfair Display + Inter (NB brand pairing) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nb-header">
+    <a class="nb-brand" href="https://northernbelle.co.uk/" target="_blank" rel="noopener">
+      <img src="https://northernbelle.co.uk/images/crest.png" alt="Northern Belle crest" />
+      <span class="nb-brand-text">Northern Belle</span>
+    </a>
+    <div class="nb-trip-meta">
+      <div class="nb-trip-title">Edinburgh Fringe at Leisure</div>
+      <div class="nb-trip-date">Saturday 29 August 2026</div>
+    </div>
+    <a class="nb-cta" href="https://northernbelle.co.uk/trip/edinburgh-fringe-festival-at-leisure/1906" target="_blank" rel="noopener">View &amp; book trip</a>
+  </header>
+
+  <section class="nb-ribbon" aria-label="Your time in Edinburgh">
+    <div class="ribbon-inner">
+      <div class="ribbon-step ribbon-arrive">
+        <span class="ribbon-time">12:10</span>
+        <span class="ribbon-label">Arrive Waverley</span>
+      </div>
+      <div class="ribbon-track" aria-hidden="true">
+        <span class="ribbon-track-fill"></span>
+        <span class="ribbon-track-label">5 hours 10 minutes on the ground</span>
+      </div>
+      <div class="ribbon-step ribbon-depart">
+        <span class="ribbon-time">17:20</span>
+        <span class="ribbon-label">Depart Waverley</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="nb-layout">
+    <aside class="nb-side" id="side">
+      <nav class="nb-tabs" role="tablist">
+        <button class="nb-tab active" data-tab="explore" role="tab" aria-selected="true">Explore</button>
+        <button class="nb-tab" data-tab="plans" role="tab" aria-selected="false">Day plans</button>
+        <button class="nb-tab" data-tab="shortlist" role="tab" aria-selected="false">My day <span class="nb-pill" id="shortlist-count">0</span></button>
+      </nav>
+
+      <section class="nb-panel" id="panel-explore" role="tabpanel">
+        <p class="nb-intro">Every venue here is within a comfortable walk of where the Northern Belle pulls in. Tap a pin to see what it's known for and link straight through to today's shows on edfringe.com.</p>
+
+        <div class="nb-filters" aria-label="Filter venues">
+          <button class="nb-filter active" data-filter="all">All</button>
+          <button class="nb-filter" data-filter="big-four">Big Four</button>
+          <button class="nb-filter" data-filter="flagship">Flagship</button>
+          <button class="nb-filter" data-filter="specialist">Specialist</button>
+          <button class="nb-filter" data-filter="free">Free Fringe</button>
+          <button class="nb-filter" data-filter="eats">Eats &amp; drinks</button>
+        </div>
+
+        <h3 class="nb-h3">Within walking distance of Waverley</h3>
+        <ul class="nb-list" id="venue-list"></ul>
+      </section>
+
+      <section class="nb-panel hidden" id="panel-plans" role="tabpanel">
+        <p class="nb-intro">Built for the exact window the Northern Belle gives you. Tap a plan to trace it on the map.</p>
+        <div class="nb-plans" id="plans-list"></div>
+        <div class="nb-plan-detail hidden" id="plan-detail">
+          <button class="nb-back" id="plan-back">Back to plans</button>
+          <h3 class="nb-h3" id="plan-detail-title"></h3>
+          <p class="nb-intro" id="plan-detail-tagline"></p>
+          <ol class="nb-steps" id="plan-detail-steps"></ol>
+        </div>
+      </section>
+
+      <section class="nb-panel hidden" id="panel-shortlist" role="tabpanel">
+        <p class="nb-intro">Star venues on the map or in the Explore list to build your own day. We'll keep an eye on total walking time so you make the train home.</p>
+        <div class="nb-shortlist-summary" id="shortlist-summary">
+          <div class="nb-stat">
+            <span class="nb-stat-value" id="ss-stops">0</span>
+            <span class="nb-stat-label">stops</span>
+          </div>
+          <div class="nb-stat">
+            <span class="nb-stat-value" id="ss-walk">0</span>
+            <span class="nb-stat-label">min walking</span>
+          </div>
+          <div class="nb-stat">
+            <span class="nb-stat-value" id="ss-buffer">5h 10m</span>
+            <span class="nb-stat-label">remaining</span>
+          </div>
+        </div>
+        <ul class="nb-list" id="shortlist-list"></ul>
+        <button class="nb-link" id="shortlist-clear">Clear shortlist</button>
+      </section>
+
+      <footer class="nb-side-footer">
+        <p>Hosted on the Northern Belle. Curated by humans, not algorithms. Live show data via <a href="https://www.edfringe.com" target="_blank" rel="noopener">edfringe.com</a>.</p>
+      </footer>
+    </aside>
+
+    <div class="nb-map-wrap">
+      <div id="map" role="application" aria-label="Edinburgh Fringe venue map"></div>
+      <div class="nb-legend">
+        <div class="legend-row"><span class="dot dot-waverley"></span> Waverley arrival</div>
+        <div class="legend-row"><span class="dot dot-big-four"></span> Big Four venue hubs</div>
+        <div class="legend-row"><span class="dot dot-flagship"></span> Flagship venue</div>
+        <div class="legend-row"><span class="dot dot-specialist"></span> Specialist</div>
+        <div class="legend-row"><span class="dot dot-free"></span> Free Fringe</div>
+        <div class="legend-row"><span class="dot dot-eats"></span> Eats &amp; drinks</div>
+        <div class="legend-row legend-rings">
+          <span class="ring-swatch"></span>
+          5 / 10 / 15 / 20 minute walking rings
+        </div>
+      </div>
+      <button class="nb-mobile-toggle" id="mobile-toggle" aria-label="Open sidebar">Show planner</button>
+    </div>
+  </main>
+
+  <!-- Leaflet 1.9.4 -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>

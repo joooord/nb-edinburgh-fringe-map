@@ -1,0 +1,71 @@
+{
+  "_note": "Hand-picked food and drink anchors for Northern Belle guests with a 5h 10m Edinburgh window. Skewed toward quick, characterful bites and cocktails (a sumptuous six-course dinner is waiting on the return journey, so nothing heavy). All within an easy walk of Waverley.",
+  "places": [
+    {
+      "id": "devils-advocate",
+      "name": "The Devil's Advocate",
+      "type": "cocktail-bar",
+      "address": "9 Advocate's Close, EH1 1ND",
+      "lat": 55.94970,
+      "lng": -3.19000,
+      "walk_min": 4,
+      "blurb": "A converted Victorian pump house tucked down a close off the Royal Mile. Edinburgh's finest small-plates-and-whisky stop, two minutes off the train.",
+      "good_for": ["pre-show cocktail", "quick bite"]
+    },
+    {
+      "id": "ondine",
+      "name": "Ondine",
+      "type": "seafood",
+      "address": "2 George IV Bridge, EH1 1AD",
+      "lat": 55.94850,
+      "lng": -3.19090,
+      "walk_min": 8,
+      "blurb": "Roy Brett's Michelin-recommended seafood room. The two-course express lunch is one of the best deals in town if you have a small window between shows.",
+      "good_for": ["light lunch", "celebration"]
+    },
+    {
+      "id": "bow-bar",
+      "name": "The Bow Bar",
+      "type": "whisky-pub",
+      "address": "80 West Bow, EH1 2HH",
+      "lat": 55.94818,
+      "lng": -3.19366,
+      "walk_min": 8,
+      "blurb": "Tiny no-fuss whisky bar on Victoria Street with over 300 single malts. The proper Edinburgh dram experience, no cocktail menu, no nonsense.",
+      "good_for": ["a quick dram", "between shows"]
+    },
+    {
+      "id": "hawksmoor",
+      "name": "Hawksmoor Edinburgh",
+      "type": "cocktails",
+      "address": "23 West Register Street, EH2 2AA",
+      "lat": 55.95360,
+      "lng": -3.19022,
+      "walk_min": 3,
+      "blurb": "Three minutes from Waverley, in the old India Buildings banking hall. Order the Shaky Pete's Ginger Brew at the bar, a proper Fringe ritual.",
+      "good_for": ["arrival cocktail", "after-show"]
+    },
+    {
+      "id": "voodoo-rooms",
+      "name": "The Voodoo Rooms",
+      "type": "bar-with-shows",
+      "address": "19a West Register Street, EH2 2AA",
+      "lat": 55.95370,
+      "lng": -3.19000,
+      "walk_min": 3,
+      "blurb": "Lavish first-floor cocktail rooms above the Café Royal, hosting Fringe music and cabaret in the same building. A complete pre-train wind-down.",
+      "good_for": ["after-show cocktail", "Fringe music"]
+    },
+    {
+      "id": "marys-milk-bar",
+      "name": "Mary's Milk Bar",
+      "type": "gelato",
+      "address": "19 Grassmarket, EH1 2HS",
+      "lat": 55.94757,
+      "lng": -3.19383,
+      "walk_min": 10,
+      "blurb": "Hand-churned gelato made daily from a tiny Grassmarket counter. The five-minute treat that doubles as a Fringe-day reset.",
+      "good_for": ["sweet break", "queue with the locals"]
+    }
+  ]
+}

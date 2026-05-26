@@ -1,0 +1,61 @@
+{
+  "_note": "Pre-built day plans for the 12:10 to 17:20 Edinburgh window. Each plan leaves a 25-minute buffer before the train departs and pads in cocktail and short-walk transitions.",
+  "plans": [
+    {
+      "id": "comedy-quick",
+      "title": "The Comedy Quick-Hit",
+      "tagline": "Two stand-up sets and a cocktail, all within ten minutes of the train",
+      "steps": [
+        { "time": "12:10", "label": "Arrive Waverley", "location": "waverley", "kind": "arrival" },
+        { "time": "12:25", "label": "Light bite and Bloody Mary", "location": "hawksmoor", "kind": "drink" },
+        { "time": "13:30", "label": "Stand-up set", "location": "monkey-barrel", "kind": "show" },
+        { "time": "14:45", "label": "Royal Mile street acts", "location": "royal-mile-street", "kind": "free" },
+        { "time": "15:30", "label": "Second stand-up", "location": "just-the-tonic-caves", "kind": "show" },
+        { "time": "16:45", "label": "Cocktail back at Waverley", "location": "voodoo-rooms", "kind": "drink" },
+        { "time": "17:20", "label": "Depart for home", "location": "waverley", "kind": "departure" }
+      ]
+    },
+    {
+      "id": "theatre-deep",
+      "title": "The Theatre Connoisseur",
+      "tagline": "One serious play, dressed properly, with seafood and a single malt",
+      "steps": [
+        { "time": "12:10", "label": "Arrive Waverley", "location": "waverley", "kind": "arrival" },
+        { "time": "12:30", "label": "Express seafood lunch", "location": "ondine", "kind": "meal" },
+        { "time": "13:45", "label": "Critically-acclaimed new play", "location": "traverse", "kind": "show" },
+        { "time": "15:45", "label": "A whisky on Victoria Street", "location": "bow-bar", "kind": "drink" },
+        { "time": "16:30", "label": "Slow walk back through the Old Town", "location": "royal-mile-street", "kind": "free" },
+        { "time": "17:20", "label": "Depart for home", "location": "waverley", "kind": "departure" }
+      ]
+    },
+    {
+      "id": "royal-mile-wander",
+      "title": "The Royal Mile Wanderer",
+      "tagline": "Free Fringe and street performers, no tickets, no plan, all atmosphere",
+      "steps": [
+        { "time": "12:10", "label": "Arrive Waverley", "location": "waverley", "kind": "arrival" },
+        { "time": "12:20", "label": "Up onto the Royal Mile", "location": "royal-mile-street", "kind": "free" },
+        { "time": "13:30", "label": "Cocktail and small plate", "location": "devils-advocate", "kind": "drink" },
+        { "time": "14:45", "label": "Gelato on the Grassmarket", "location": "marys-milk-bar", "kind": "sweet" },
+        { "time": "15:30", "label": "Free Fringe show in the Old Town", "location": "underbelly-cowgate", "kind": "free" },
+        { "time": "16:45", "label": "Last drink at the Café Royal", "location": "voodoo-rooms", "kind": "drink" },
+        { "time": "17:20", "label": "Depart for home", "location": "waverley", "kind": "departure" }
+      ]
+    },
+    {
+      "id": "bristo-three",
+      "title": "Three Shows in Bristo Square",
+      "tagline": "For the brave: hop between Pleasance, Gilded Balloon and Underbelly without leaving the square",
+      "steps": [
+        { "time": "12:10", "label": "Arrive Waverley", "location": "waverley", "kind": "arrival" },
+        { "time": "12:25", "label": "Brisk walk south to Bristo Square", "location": "pleasance-dome", "kind": "transit" },
+        { "time": "12:45", "label": "Lunchtime show", "location": "pleasance-dome", "kind": "show" },
+        { "time": "13:45", "label": "Bristo Square food trucks", "location": "underbelly-bristo", "kind": "meal" },
+        { "time": "14:30", "label": "Mid-afternoon comedy", "location": "gilded-balloon-teviot", "kind": "show" },
+        { "time": "15:45", "label": "Final show, just across the square", "location": "underbelly-bristo", "kind": "show" },
+        { "time": "16:55", "label": "Quick walk back to Waverley", "location": "waverley", "kind": "transit" },
+        { "time": "17:20", "label": "Depart for home", "location": "waverley", "kind": "departure" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "nb-edinburgh-fringe-map",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive Edinburgh Fringe day-planner map for Northern Belle guests on the 12:10/17:20 Waverley window.",
+  "scripts": {
+    "dev": "npx serve@latest .",
+    "start": "npx serve@latest ."
+  }
+}
